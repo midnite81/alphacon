@@ -15,7 +15,7 @@ This package requires PHP 7.4+, and includes a Laravel 5+ Service Provider and F
 
 To install through composer include the package in your composer.json.
 
-`"midnite81/geolocation": "^2.0"`
+`"midnite81/alphacon": "^1.0"`
 
 then run composer install or composer update to download the dependencies, alternatively 
 you can run `composer require midnite81/alphacon`.
