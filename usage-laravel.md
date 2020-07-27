@@ -25,9 +25,9 @@ If you inject `ITranslator` into your method, you will need to set the Dictionar
 ```php
 use \Midnite81\Alphacon\Contracts\Services;
 
-public function example(ITranslator $translate)
+public function example(ITranslator $translator)
 {
-    $translate->setDictionary(new MyCustomDictionary());
+    $translator->setDictionary(new MyCustomDictionary());
 }
 
 ```
@@ -38,9 +38,9 @@ Nato, you can then do the following;
 ```php
 use \Midnite81\Alphacon\Contracts\Services;
 
-public function example(INatoTranslate $translate)
+public function example(INatoTranslator $translator)
 {
-    $result = $translate->of('Test'); // this is the string I want converting
+    $result = $translator->of('Test'); // this is the string I want converting
 
     $result->toTranslatedString(); // TANGO echo sierra tango
 
@@ -88,7 +88,7 @@ class MyCustomDictionary implements \Midnite81\Alphacon\Contracts\Dictionaries\I
 }
 ```
 
-Then you can either pass it to ITranslate using the setDictionary method or alternatively
+Then you can either pass it to ITranslator using the setDictionary method or alternatively
 you could extend the AlphaconService provider and bind as follows;
 
 ```php
@@ -101,19 +101,19 @@ class ExtendedServiceProvider extends AlphaconServiceProvider
     public function register(){
         parent::register();
     
-        $this->app->bind(IMyCustomTranslate::class, function($app) { 
+        $this->app->bind(IMyCustomTranslator::class, function($app) { 
             new Translator(new MyCustomDictionary());
         });
     }
 }
 ```
 
-You will need to create the interface (IMyCustomTranslate), but you do not need to do 
-anything else with it. Simply inherit from ITranslate and you'll have all the methods
+You will need to create the interface (IMyCustomTranslator), but you do not need to do 
+anything else with it. Simply inherit from ITranslator and you'll have all the methods
 you require.
 
 ```php
-interface IMyCustomTranslate extends \Midnite81\Alphacon\Contracts\Services\ITranslator
+interface IMyCustomTranslator extends \Midnite81\Alphacon\Contracts\Services\ITranslator
 {
 }
 ```

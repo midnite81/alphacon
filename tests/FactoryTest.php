@@ -13,7 +13,7 @@ class FactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_creates_a_nato_implementation_of_translate()
+    public function it_creates_a_nato_implementation_of_translator()
     {
         $result = Factory::nato();
 
@@ -24,7 +24,7 @@ class FactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_creates_a_morse_code_implementation_of_translate()
+    public function it_creates_a_morse_code_implementation_of_translator()
     {
         $result = Factory::morseCode();
 
@@ -35,7 +35,7 @@ class FactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_creates_a_custom_implementation_of_translate()
+    public function it_creates_a_custom_implementation_of_translator()
     {
         $result = Factory::make(new TestDictionary());
 
@@ -46,7 +46,7 @@ class FactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_creates_a_custom_implementation_of_translate_by_string()
+    public function it_creates_a_custom_implementation_of_translator_by_string()
     {
         $result = Factory::makeByString(TestDictionary::class);
 
