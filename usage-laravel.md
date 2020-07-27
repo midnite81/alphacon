@@ -12,20 +12,20 @@ This package comes with three default Interfaces you can dependency inject;
 
 |Interface|Produces|
 |---|---|
-|ITranslate|Produces the Translate class with no dictionary installed|
-|INatoTranslate|Produces the Translate class with the Nato dictionary installed|
-|IMorseCodeTranslate|Produces the Translate class with the Morse code dictionary installed|
+|ITranslator|Produces the Translator class with no dictionary installed|
+|INatoTranslator|Produces the Translator class with the Nato dictionary installed|
+|IMorseCodeTranslator|Produces the Translator class with the Morse code dictionary installed|
 
 In order for the translator to work, it requires a Dictionary. A dictionary must implement
 a `IDictionary`. For an example of this please look at 
 `src/Dictionaries/NatoDictionary.php`
 
-If you inject `ITranslate` into your method, you will need to set the Dictionary manually.
+If you inject `ITranslator` into your method, you will need to set the Dictionary manually.
 
 ```php
 use \Midnite81\Alphacon\Contracts\Services;
 
-public function example(ITranslate $translate)
+public function example(ITranslator $translate)
 {
     $translate->setDictionary(new MyCustomDictionary());
 }
