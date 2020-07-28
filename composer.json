@@ -1,6 +1,6 @@
 {
     "name": "midnite81/alphacon",
-    "description": "A PHP to generate nato strings",
+    "description": "Alphacon (or AlphabetConversion) converts characters in strings into different formats such as Nato Strings or Morse Code.",
     "type": "library",
     "require": {
         "php": ">7.4"
