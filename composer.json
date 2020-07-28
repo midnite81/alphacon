@@ -2,10 +2,14 @@
     "name": "midnite81/nato",
     "description": "A PHP to generate nato strings",
     "type": "library",
+    "require": {
+        "php": ">7.4"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.2",
         "orchestra/testbench": "^5.3",
-        "laravel/framework": "^5.0|^6.0|^7.0"
+        "laravel/framework": "^5.0|^6.0|^7.0",
+        "satooshi/php-coveralls": "^2.2"
     },
     "license": "MIT",
     "authors": [
