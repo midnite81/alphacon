@@ -8,6 +8,8 @@ use Midnite81\Alphacon\Contracts\Services\INatoTranslator;
 use Midnite81\Alphacon\Contracts\Services\ITranslator;
 use Midnite81\Alphacon\Dictionaries\MorseCodeDictionary;
 use Midnite81\Alphacon\Dictionaries\NatoDictionary;
+use Midnite81\Alphacon\Services\Subs\MorseCodeTranslator;
+use Midnite81\Alphacon\Services\Subs\NatoTranslator;
 use Midnite81\Alphacon\Services\Translator;
 
 class AlphaconServiceProvider extends ServiceProvider
@@ -19,11 +21,11 @@ class AlphaconServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(INatoTranslator::class, function($app) {
-            return new Translator(new NatoDictionary());
+            return new NatoTranslator(new NatoDictionary());
         });
 
         $this->app->bind(IMorseCodeTranslator::class, function($app) {
-            return new Translator(new MorseCodeDictionary());
+            return new MorseCodeTranslator(new MorseCodeDictionary());
         });
     }
 }
