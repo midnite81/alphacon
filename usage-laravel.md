@@ -93,8 +93,8 @@ you could extend the AlphaconService provider and bind as follows;
 
 ```php
 use Midnite81\Alphacon\AlphaconServiceProvider;
-use Midnite81\Alphacon\Contracts\Services\ITranslator;
-use Midnite81\Alphacon\Services\Translator;
+use Midnite81\Alphacon\Contracts\Services\IMyCustomTranslator;
+use Midnite81\Alphacon\Services\MyCustomTranslator;
 
 class ExtendedServiceProvider extends AlphaconServiceProvider
 { 
@@ -102,18 +102,25 @@ class ExtendedServiceProvider extends AlphaconServiceProvider
         parent::register();
     
         $this->app->bind(IMyCustomTranslator::class, function($app) { 
-            new Translator(new MyCustomDictionary());
+            new MyCustomTranslator(new MyCustomDictionary());
         });
     }
 }
 ```
 
-You will need to create the interface (IMyCustomTranslator), but you do not need to do 
-anything else with it. Simply inherit from ITranslator and you'll have all the methods
-you require.
+You will need to create the interface (IMyCustomTranslator) and extend ITranslator.
+Simply inherit from ITranslator and you'll have all the methods you require.
 
 ```php
 interface IMyCustomTranslator extends \Midnite81\Alphacon\Contracts\Services\ITranslator
+{
+}
+```
+
+You will also nee to create the concrete class (MyCustomTranslator) and extend Translator.
+
+```php
+class MyCustomTranslator extends \Midnite81\Alphacon\Services\Translator
 {
 }
 ```
